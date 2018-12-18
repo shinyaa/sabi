@@ -1,0 +1,21 @@
+<h1>歌詞情報入力</h1>
+<%= form_for @lyric do |f| %>
+ <div>
+     <%= label_tag :title ,"タイトル" %><%= f.text_field :title %>
+ </div>
+ <div>
+     <%= label_tag :artist_id ,"アーティストID" %><%= f.collection_select :artist_id,Artist.all,:id,:name %>
+ </div>
+ <div>
+     <%= label_tag :text ,"歌詞" %><%= f.text_area :text %>
+ </div>
+ <div>
+     <%= label_tag :image ,"画像" %><%= f.file_field :image %>
+ </div>
+ <div>
+     <%= label_tag :url ,"URL" %><%= f.text_field :url %>
+ </div>
+ <div>
+     <%= f.submit "登録" %>
+ </div>
+<% end %>

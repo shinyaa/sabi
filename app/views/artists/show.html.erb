@@ -1,0 +1,16 @@
+<h1>アーティスト詳細</h1>
+<%= flash[:success]%>
+<%= flash[:danger] %>
+<table>
+    <theader>
+          <tr>
+          <th>アーティスト名</th><th>画像</th>
+          </tr>
+    </theader>
+    <tbody>
+        <tr>
+            <th><%= @artist.name %></th>
+            <th><%= @artist.image %></th>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,12 @@
+<h1>アーティスト情報入力</h1>
+<%= form_for @artist do |f|%>
+<div>
+    <%= f.text_field :name %>
+</div>
+<div>
+    <%= f.file_field :image %>
+</div>
+<div>
+    <%= f.submit "登録" %>
+</div>
+<% end %>

@@ -1,0 +1,32 @@
+<h1>アーティスト一覧</h1>
+
+<div>
+    <table>
+        <theader>
+            <tr>
+                <th>アーティスト名</th><th>画像</th>
+            </tr>
+        </theader>
+        <tbody>
+            <% @artist.each do |artist| %>
+            <tr>
+                <td>
+                    <%= link_to artist.name,artist_path(artist) %>
+                </td>
+                <td>
+                    <%= artist.name %>
+                </td>
+                <td>
+                    <%= artist.image %>
+                </td>
+                <td>
+                  <%= link_to "編集", edit_artist_path(artist) %>
+                </td>
+                <td>
+                  <%= link_to "削除",artist_path(artist),:method => :delete %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

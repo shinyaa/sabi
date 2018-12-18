@@ -1,0 +1,44 @@
+<h1>サビ一覧</h1>
+<div> <!--  検索拡張機能  -->
+    <%= form_tag(lyrics_path, :method => "get") do %>
+    <%= label_tag :title, "タイトル" %><%= text_field_tag :title,params[:title] %>
+    <%= submit_tag "検索" %>
+    <% end %>
+</div>
+</br>
+<div>
+    <table>
+        <theader>
+            <tr>
+                <th>タイトル</th><th>アーティストID</th><th>歌詞</th><th>画像</th<th>URL</th>
+            </tr>
+        </theader>
+        <tbody>
+            <% @lyrics.each do |lyric| %>
+            <tr>
+                <td>
+                    <%= link_to lyric.title,lyric_path(lyric) %>
+                </td>
+                <td>
+                    <%= lyric.artist_id %>
+                </td>
+                <td>
+                    <%= lyric.text %>
+                </td>
+                <td>
+                    <%= image_tag lyric.image %>
+                </td>
+                <td>
+                    <%= lyric.url %>
+                </td>
+                <td>
+                  <%= link_to "編集", edit_lyric_path(lyric) %>
+                </td>
+                <td>
+                  <%= link_to "削除",lyric_path(lyric),:method => :delete %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

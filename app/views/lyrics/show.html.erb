@@ -1,0 +1,21 @@
+<h1>歌詞詳細</h1>
+<%= flash[:success] %></br>
+<%= flash[:danger] %></br>
+    <table>
+        <theader>
+          <tr>
+          <th>タイトル</th><th>アーティスト名</th><th>歌詞</th><th>画像</th><th>URL</th>
+          </tr>
+         </theader>
+         <tbody>
+            <tr>
+                <th><%= @lyric.title %></th>
+                <th><%= @lyric.artist_id %></th>
+                <th><%= @lyric.text %></th>
+                <th><%= image_tag @lyric.image %></th>
+                <th><%= @lyric.url %>  </th>
+            </tr>
+          </tbody>
+    </table>
+  
+    

@@ -5,6 +5,7 @@ class LyricsController < ApplicationController
     if params[:title].present?
     @lyrics = @lyrics.get_by_title params[:title]
     end
+    @artists = Artist.all
   end
   #データの閲覧画面の表示
   def show

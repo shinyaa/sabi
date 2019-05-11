@@ -1,44 +1,30 @@
-<h1>サビ一覧</h1>
-<div> <!--  検索拡張機能  -->
-    <%= form_tag(lyrics_path, :method => "get") do %>
-    <%= label_tag :title, "タイトル" %><%= text_field_tag :title,params[:title] %>
-    <%= submit_tag "検索" %>
-    <% end %>
-</div>
-</br>
-<div>
-    <table>
-        <theader>
-            <tr>
-                <th>タイトル</th><th>アーティストID</th><th>歌詞</th><th>画像</th<th>URL</th>
-            </tr>
-        </theader>
-        <tbody>
-            <% @lyrics.each do |lyric| %>
-            <tr>
-                <td>
-                    <%= link_to lyric.title,lyric_path(lyric) %>
-                </td>
-                <td>
-                    <%= lyric.artist_id %>
-                </td>
-                <td>
-                    <%= lyric.text %>
-                </td>
-                <td>
-                    <%= image_tag lyric.image %>
-                </td>
-                <td>
-                    <%= lyric.url %>
-                </td>
-                <td>
-                  <%= link_to "編集", edit_lyric_path(lyric) %>
-                </td>
-                <td>
-                  <%= link_to "削除",lyric_path(lyric),:method => :delete %>
-                </td>
-            </tr>
+<head>
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+</head>
+<body>
+    <h1>サビ一覧</h1>
+        <div> <!--  検索拡張機能  -->
+            <%= form_tag(lyrics_path, :method => "get") do %>
+            <%= label_tag :title, "タイトル" %><%= text_field_tag :title,params[:title] %>
+            <%= submit_tag "検索" %>
             <% end %>
-        </tbody>
-    </table>
-</div>
+        </div>
+        </br>
+        <div class='container'>
+                <% @lyrics.each do |lyric| %>
+                    <div class='content'>
+                        <%= image_tag(lyric.image, id: "show_container-#{lyric.id}") %>
+                        <p class='artist_title'>
+                            <%= lyric.artist.name %>/<%= link_to lyric.title,lyric_path(lyric) %>
+                        </p>
+                        <p class='text'>
+                            <%= lyric.text %>
+                        </p>
+
+                        </p>
+                        </div>
+                <% end %>
+                
+        </div>
+</body>
+    

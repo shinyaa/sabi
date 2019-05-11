@@ -15,7 +15,7 @@ class LyricDashboard < Administrate::BaseDashboard
     url: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    image: Field::String,
+    image: Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -47,11 +47,9 @@ class LyricDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :artist,
     :title,
     :text,
-    :image,
-    :url,
+    :url
   ].freeze
 
   # Overwrite this method to customize how lyrics are displayed
@@ -60,5 +58,8 @@ class LyricDashboard < Administrate::BaseDashboard
   # def display_resource(lyric)
   #   "Lyric ##{lyric.id}"
   # end
-
+    def permitted_attributes
+    super + [:image, :artist_id]  # -- Adding our now removed field to the permitted list
+  end
+  
 end

@@ -53,3 +53,5 @@ gem 'administrate-field-carrierwave', '~> 0.3.4'
 group :production do
   gem 'pg', '0.20.0'
 end
+
+
